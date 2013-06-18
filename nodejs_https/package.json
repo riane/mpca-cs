@@ -1,0 +1,14 @@
+{
+  "name": "deploytestempca",
+  "version": "0.0.0",
+  "description": "aplicacao teste para o trabalho de construcao de software",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": "",
+  "author": "andreiqueiroz",
+  "license": "BSD",
+  "gitHead": "415dc498f87963c00e9701cebfb7fda50d4917b7"
+}
