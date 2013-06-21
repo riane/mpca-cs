@@ -1,0 +1,43 @@
+Senhores,
+
+1	Seguem em anexo as novas consultas conforme especificado na reunião de 14/06/2013:
+	
+		q08-Enumera-regioes.js
+		q09-Enumera-UFs-de-uma-regiao-passada-como-parametro.js
+		q10-Enumera-cidades-de-uma-UF-passada-como-parametro.js
+
+		q11-Enumera-qtd-beneficiarios-nas-regioes.js
+		q12-Enumera-qtd-beneficiarios-nas-UFs-de-uma-regiao-passada-como-parametro.js DEFAULT "NE"
+		q13-Enumera-qtd-beneficiarios-nas-cidades-de-uma-UF-passada-como-parametro.js DEFAULT "BA"
+		
+2	Atentem para o retorno das últimas três consultas: 
+	
+		LOCALIDADE;QTD BENEFICIARIOS DO GRUPO1;QTD BENEFICIARIOS DO GRUPO2;QTD BENEFICIARIOS DO GRUPO3;CUSTO ANUAL*100
+		
+3	Abaixo, temos o retorno destas consultas como os dados atuais do banco de dados:
+
+		C:\mpca2013-cs-queries>node q11-Enumera-qtd-beneficiarios-nas-regioes.js
+		'';0;3070;0;53878500
+		NE;614271;974625;438338;35577956700
+
+		C:\mpca2013-cs-queries>node q12-Enumera-qtd-beneficiarios-nas-UFs-de-uma-regiao-passada-como-parametro.js
+		PE;77936;0;89392;2936606400
+		MA;60019;0;33440;1640205450
+		AL;58886;0;34678;1642048200
+		SE;21750;0;10889;572814450
+		RN;33960;0;27071;1071094050
+		CE;151232;0;97503;4365299250
+		PB;39271;0;27645;1174375800
+		BA;125490;0;97254;3909157200
+		PI;45727;977695;20466;18320234400
+
+		C:\mpca2013-cs-queries>node q13-Enumera-qtd-beneficiarios-nas-cidades-de-uma-UF-passada-como-parametro.js
+		Vitória da Conquista;0;0;9328;163706400
+		Itabuna;0;0;5368;94208400
+		Camaçari;0;0;7457;130870350
+		Feira de Santana;0;0;17157;301105350
+		Salvador;125490;0;57944;3219266700
+		
+	À disposição
+	
+Abílio
