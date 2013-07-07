@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Programa Brasil maisTI</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/demo.css" />
+    <link rel="stylesheet" href="./css/bootstrap.css" />
+    <script src="./js/raphael.js" type="text/javascript"></script>
+    <script src="./js/g.raphael.js" type="text/javascript"></script>
+    <script src="./js/g.pie.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="jumbotron subhead">
+        <div class="container">
+            <div class="pull-left">
+                <h1>
+                    Programa Brasil MaisTI</h1>
+                <p class="lead">
+                    An&aacute;lise para implementa&ccedil;&atilde;o do programa.</p>
+            </div>
+            <div>
+                <div class="carbonad pull-right">
+                    <div id="azcarbon">
+                        <img src="img/75630_164501116916083_4563697_n.jpg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <fieldset id="fieldsetResultado">
+                <legend>Quantitativo por P&uacute;blico-Alvo</legend>
+                <table class="table tabs-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>
+                            </th>
+                            <th>
+                                P&uacute;blico-Alvo A
+                            </th>
+                            <th>
+                                P&uacute;blico-Alvo B
+                            </th>
+                            <th>
+                                P&uacute;blico-Alvo C
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--RES1-->
+                    </tbody>
+                </table>
+            </fieldset>
+            <fieldset id="fieldsetResultado2">
+                <legend>Custos para Implementa&ccedil;&atilde;o do Programa</legend>
+                <table class="table tabs-striped table-bordered">
+                    <tr>
+                        <th colspan="2">
+                            P&uacute;blico-Alvo A
+                        </th>
+                        <th colspan="2">
+                            P&uacute;blico-Alvo B
+                        </th>
+                        <th colspan="2">
+                            P&uacute;blico-Alvo C
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            2014
+                        </th>
+                        <th>
+                            2015
+                        </th>
+                        <th>
+                            2014
+                        </th>
+                        <th>
+                            2015
+                        </th>
+                        <th>
+                            2014
+                        </th>
+                        <th>
+                            2015
+                        </th>
+                    </tr>
+                    <!--RES2-->
+                </table>
+                <div id="holder">
+                </div>
+                <p>
+                    <b>Descri&ccedil;&atilde;o do P&uacute;blico-Alvo</b></p>
+                <ul>
+                    <li>P&uacute;blico-Alvo A: Quantidade de Benefici&aacute;rios do Bolsa Fam&iacute;lia
+                        Jovens 15-24 Anos em cidades que sejam capitais de estados do Pa&iacute;s.</li>
+                    <li>P&uacute;blico-Alvo B:Quantidade de Benefici&aacute;rios do Bolsa Fam&iacute;lia
+                        de Qualquer Idade em Cidades com Popula&ccedil;&atilde;o abaixo de 30.000 pessoas(<),
+                        da Regi&atilde;o Norte e Nordeste, com CRAS ou CREAS que possuem acesso a Internet.</li>
+                    <li>P&uacute;blico-Alvo C:Quantidade de Meninas de 15-24 Anos em cidades com Populac&atilde;o
+                        acima de 200.000 pessoas (>=)</li>
+                </ul>
+                <p>
+                    <b>Par&acirc;metros Utilizados</b></p>
+                <ul>
+                    <!--RES3-->
+                    <li>Total de Horas para Implementa&ccedil;&atilde;o do Programa por Ano: 150 horas</li>
+                    <li>Custo para Implementa&ccedil;&atilde;o do Programa na Regi&atilde;o Norte (R$ 1,38
+                        Aluno/Hora)</li>
+                    <li>Custo para Implementa&ccedil;&atilde;o do Programa nas Demais Regi&otilde;es (R$
+                        1,17 Aluno/Hora)</li>
+                </ul>
+            </fieldset>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+
+    window.onload = function () {
+        var r = Raphael("holder");
+        r.text(160, 10, "").attr({ font: "20px sans-serif" });        
+        
+        r.piechart(160, 120, 100, <!--RES4-->,{ legend: ["%%.%% - Publico A","%%.%% - Publico B" ,"%%.%% - Publico C"]});
+
+    };
+</script>
+</html>

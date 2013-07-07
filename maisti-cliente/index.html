@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Programa Brasil maisTI</title>
+    <meta http-equiv="content-type" content="text/html; charset=ANSI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/demo.css" />
+    <link rel="stylesheet" href="./css/bootstrap.css" />
+    <link rel="stylesheet" href="./css/bootstrap-responsive.css" />
+    <script src="js/bootstrap.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function submeterForm() {
+            var formConsulta = document.getElementById("formConsulta");
+            var idRegiaoRef = document.getElementById('idRegiao').options[document.getElementById('idRegiao').selectedIndex].value;
+            var idEstadoRef = document.getElementById('idEstado').options[document.getElementById('idEstado').selectedIndex].value;
+            var idMunicipioRef = document.getElementById('idMunicipio').options[document.getElementById('idMunicipio').selectedIndex].value;
+
+            formConsulta.action = "result.html?idRegiao=" + idRegiaoRef + "&idEstado=" + idEstadoRef + "&idMunicipio=" + idMunicipioRef;
+            formConsulta.submit();
+
+        }
+
+        function selectCarregarEstados(idRegiao) {
+            var idRegiaoRef = document.getElementById('idRegiao').options[idRegiao].value;
+            removeAll("idEstado");
+            removeAll("idMunicipio");
+            switch (idRegiaoRef) {
+                case 'CO': addOpcao('MT', 'MT', "idEstado");
+                    addOpcao('MS', 'MS', "idEstado");
+                    addOpcao('GO', 'GO', "idEstado");
+                    addOpcao('DF', 'DF', "idEstado");
+                    break;
+                case 'NE': addOpcao('SE', 'SE', "idEstado");
+                    addOpcao('RN', 'RN', "idEstado");
+                    addOpcao('PI', 'PI', "idEstado");
+                    addOpcao('PE', 'PE', "idEstado");
+                    addOpcao('PB', 'PB', "idEstado");
+                    addOpcao('MA', 'MA', "idEstado");
+                    addOpcao('CE', 'CE', "idEstado");
+                    addOpcao('BA', 'BA', "idEstado");
+                    addOpcao('AL', 'AL', "idEstado");
+                    break;
+                case 'N': addOpcao('TO', 'TO', "idEstado");
+                    addOpcao('RR', 'RR', "idEstado");
+                    addOpcao('RO', 'RO', "idEstado");
+                    addOpcao('PA', 'PA', "idEstado");
+                    addOpcao('AP', 'AP', "idEstado");
+                    addOpcao('AM', 'AM', "idEstado");
+                    addOpcao('AC', 'AC', "idEstado");
+                    break;
+                case 'SE': addOpcao('SP', 'SP', "idEstado");
+                    addOpcao('RJ', 'RJ', "idEstado");
+                    addOpcao('MG', 'MG', "idEstado");
+                    addOpcao('ES', 'ES', "idEstado");
+                    break;
+                case 'S': addOpcao('SC', 'SC', "idEstado");
+                    addOpcao('RS', 'RS', "idEstado");
+                    addOpcao('PR', 'PR', "idEstado");
+                    break;
+            }
+        }
+        function selectCarregarMunicipios(idEstado) {
+            var idRegiaoRef = document.getElementById('idRegiao').options[document.getElementById('idRegiao').selectedIndex].value;
+            var idEstadoRef = document.getElementById('idEstado').options[idEstado].value;
+            removeAll("idMunicipio");
+            var formConsulta = document.getElementById("formConsulta");
+            formConsulta.action = "index.html?idRegiao=" + idRegiaoRef + "&idEstado=" + idEstadoRef;
+            formConsulta.submit();
+        }
+        function removeAll(campoRef) {
+            var opcDel = document.getElementById(campoRef);
+            var i;
+            for (i = opcDel.length - 1; i > 0; i--) {
+                opcDel.remove(i);
+            }
+        }
+        function addOpcao(valor, nome, campoRef) {
+            var obj = document.getElementById(campoRef);
+            var newOpcao = document.createElement('option');
+            newOpcao.text = nome;
+            newOpcao.value = valor;
+            var OptOld = obj.options[1];
+            try {
+                obj.add(newOpcao, OptOld);
+            }
+            catch (ex) {
+                obj.add(newOpcao, 1);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="jumbotron subhead">
+        <div class="container">
+            <div class="pull-left">
+               <h1>
+                    Programa Brasil MaisTI</h1>
+                <p class="lead">
+                    An&aacute;lise para implementa&ccedil;&atilde;o do programa.</p>
+            </div>
+            <div>
+                <div class="carbonad pull-right">
+                    <div id="azcarbon">
+                        <img src="img/75630_164501116916083_4563697_n.jpg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <form id='formConsulta' action="" method="POST">
+            <fieldset id="fieldsetPedido">
+                <legend>Consulta</legend>
+                <table>
+                    <tr>
+                        <td align="left">
+                            <label for="regiao">
+                                Selecione Regi&atilde;o:
+                            </label>
+                        </td>
+                        <td align="left">
+                            <select id="idRegiao" onchange="selectCarregarEstados(this.selectedIndex);">
+                                <option value='-'>-</option>
+                                <option value='CO'>CENTRO-OESTE</option>
+                                <option value='NE'>NORDESTE</option>
+                                <option value='N'>NORTE</option>
+                                <option value='SE'>SUDESTE</option>
+                                <option value='S'>SUL</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <label for="estado">
+                                Selecione Estado:
+                            </label>
+                        </td>
+                        <td align="left">
+                            <select id="idEstado" onchange="selectCarregarMunicipios(this.selectedIndex);">
+                                <option value='-'>-</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <label for="municipio">
+                                Selecione Munic&iacute;pio:
+                            </label>
+                        </td>
+                        <td align="left">
+                            <select id="idMunicipio">
+                                <option value='-'>-</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type='button' value='Consultar' onclick="submeterForm();" class="btn btn-primary" />
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

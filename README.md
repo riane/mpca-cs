@@ -9,3 +9,7 @@ VempraTI
 
 3 - mpca2013-cs-queries: consultas ao mongodb necessárias à implementação dos serviços
 
+4 - maisti-cliente: Aplicação que consome os dados fornecidos pelo maisti-rest.
+
+5 - maisti-rest: Aplicação que fornece os dados registrados na base mongodb.
+
